@@ -25,10 +25,10 @@ const RightMenu = ({data, loading}) => {
   return(
       <Menu mode="horizontal">
         <Menu.Item key="mail">
-          <Link to='/sigin'>Signin</Link>
+          <Link to='/app/signin'>Signin</Link>
         </Menu.Item>
         <Menu.Item key="app">
-          <Link to='/Signup'>Signup</Link>
+          <Link to='/app/signup'>Signup</Link>
         </Menu.Item>
       </Menu>
     )

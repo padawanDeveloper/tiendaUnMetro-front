@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import { Menu } from 'antd';
+import { Link } from "react-router-dom";
 
 class LeftMenu extends Component {
   render() {
     return (
       <Menu mode="horizontal">
         <Menu.Item key="mail">
-          Home
+          <Link to="/app">
+            Stores
+          </Link>
         </Menu.Item>
         <Menu.Item key="alipay">
-          Contact Us
+          <Link to="/app/cart">
+            Cart
+          </Link>
         </Menu.Item>
       </Menu>
     );

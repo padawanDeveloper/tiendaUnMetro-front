@@ -29,7 +29,7 @@ const ALL_STORES_QUERY = gql`
   }
 `;
 
-const Stores = () => (
+const Stores = props => (
   <div>
     <Query
       query={ALL_STORES_QUERY}
@@ -42,7 +42,7 @@ const Stores = () => (
             <Row type="flex" justify="space-around" >
               {data.stores.map( store =>
                 <Col style={{ marginBottom: 10 }} key={store.id}>
-                  <StoreCard store={store} />
+                  <StoreCard {...props} store={store} />
                 </Col>
               )}
             </Row>

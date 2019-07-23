@@ -6,7 +6,6 @@ import { CURRENT_USER_QUERY } from '../../common/User';
 import FirstStep from './steps/FirstStep'
 import SecondStep from './steps/SecondStep'
 import ThirdStep from './steps/ThidStep'
-import { getBase64 } from '../../../lib/image'
 
 const { Step } = Steps;
 let variables = {}
@@ -195,14 +194,12 @@ class CreateStoreForm extends Component{
       refetchQueries={[{ query: CURRENT_USER_QUERY }]}
     >
       {(createStore, { error, loading }) =>{ 
-        console.log('error', error)
         return(
           <div style={{ height: '500px' }}>
             <Form
               onSubmit={ async e => {
                 e.preventDefault();
                 await this.handleSubmit();
-                console.log(this.state)
                 await createStore();
               }}
               {...formItemLayout}

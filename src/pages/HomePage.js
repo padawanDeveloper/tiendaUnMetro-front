@@ -1,10 +1,10 @@
 import React from 'react';
 import Stores from '../components/store/Stores'
 
-const HomePage = () => (
+const HomePage = (props) => (
   <>
     <h1>Home Page</h1>
-    <Stores />
+    <Stores props={props}/>
   </>
 )
 

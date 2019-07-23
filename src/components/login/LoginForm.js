@@ -48,7 +48,7 @@ class LoginForm extends React.Component {
         refetchQueries={[{ query: CURRENT_USER_QUERY }]}
       >
         {(signup, { error, loading, data }) => {
-        if(data) return <Redirect to='/' />
+        if(data) return <Redirect to='/app' />
         if (error) return <div>Error :(</div>;
         return (
           <Form 

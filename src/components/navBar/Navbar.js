@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Drawer, Button, Row, Col } from 'antd';
+import { Drawer, Row, Col } from 'antd';
 import LeftMenu from './LeftMenu'
 import RightMenu from './RightMenu'
 import User from '../common/User';
@@ -26,9 +26,6 @@ class Navbar extends Component {
       <User>
         {({loading, data, error}) => {
          return( <Row >
-            <Col span={2} >
-              <Button>logo</Button>
-            </Col>
             <Col >
               <Col span={12}>
                 <LeftMenu />
@@ -46,7 +43,7 @@ class Navbar extends Component {
                 visible={this.state.visible}
               >
                 <LeftMenu />
-                <RightMenu />
+                <RightMenu loading={loading} data={data} />
               </Drawer>
             </Col>
           </Row>)

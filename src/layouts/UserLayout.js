@@ -1,12 +1,17 @@
 import React from 'react';
 import { Layout } from 'antd';
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import NavBar from '../components/navBar/Navbar'
 import HomePage from '../pages/HomePage'
+import SimpleStore from '../components/store/SimpleStore'
+import SigninPage from '../pages/SiginPage'
+import Cart from '../components/cart/Cart'
 
 const { Header, Content, Footer } = Layout;
 
-const  UserLayout = ({ match }) => (
+const PageNotFound = () => (<div><h1>PageNotFound</h1></div> )
+
+const  UserLayout = ({ match, me }) => (
   <Layout style={{minHeight: '100vh', background: '#fff'}} >
     <Header style={{background: '#fff'}}>
       <NavBar />
@@ -22,8 +27,12 @@ const  UserLayout = ({ match }) => (
       >
         <main>
           <Switch>
-            <Route path={`${match.path}`} exact component={HomePage} />
-            <Redirect to={`${match.url}`} />
+            <Route path={`${match.url}`} exact component={props => <HomePage {...props}/>} />
+            <Route path={`${match.url}/store/:id`} exact component={SimpleStore} />
+            <Route path={`${match.url}/item/:id`} exact component={SimpleStore} />
+            <Route path={`${match.url}/signin`} exact component={SigninPage} />
+            <Route path={`${match.url}/cart`} exact component={props => <Cart {...props} cart={me.cart}/>} />
+            <Route component={PageNotFound} />
           </Switch>
         </main>
       </div>

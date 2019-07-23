@@ -5,8 +5,6 @@ import UserLayout from '../../layouts/UserLayout'
 import AdminLayout from '../../layouts/AdminLayout'
 import User from '../common/User'
 
-const PageNotFound = () => (<div><h1>PageNotFound</h1></div> )
-
 const Router = () => {
   return (
     <BrowserRouter >
@@ -15,12 +13,12 @@ const Router = () => {
           if(loading) return <h1>Loading...</h1>
           return (
           <Switch>
-            <Route exact path="/" component={UserLayout} />
+            <Route path="/app" component={ porps => <UserLayout me={me} {...porps} />} />
             {me && me.permissions[0] === 'USER' ? 
-              <PrivateRoute exact path="/admin" component={AdminLayout}  /> 
-              : <Redirect to='/' />
+              <PrivateRoute path="/admin" component={porps => <AdminLayout me={me} {...porps} />} /> 
+              : <Redirect to="/app" />
             }
-            <Route component={PageNotFound}/>
+            <Redirect to="/app" />
           </Switch>
         )}}
       </User>

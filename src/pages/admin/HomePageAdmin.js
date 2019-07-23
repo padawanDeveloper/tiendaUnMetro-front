@@ -1,5 +1,5 @@
 import React from 'react';
-import CreateStore from '../components/store/form/CreateStore'
+import CreateStore from '../../components/store/form/CreateStore'
 
 const HomePageAdmin = () => (
   <div>
